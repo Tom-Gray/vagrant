@@ -7,13 +7,13 @@ Vagrant.configure(2) do |config|
   config.vm.boot_timeout = 600
  
   config.vm.define "web" do |web|
-    web.vm.network "private_network", ip: "192.168.100.10"
+    web.vm.network "private_network", ip: "192.168.56.202"
     web.vm.host_name = "IIS"
     web.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
   end
  
   config.vm.define "sql" do |sql|
-    sql.vm.network "private_network", ip: "192.168.100.11"
+    sql.vm.network "private_network", ip: "192.168.56.203"
     sql.vm.host_name = "sql"
     sql.vm.network :forwarded_port, guest: 5985, host: 5986, id: "winrm", auto_correct: true
   end
