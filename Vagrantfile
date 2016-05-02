@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
     web.vm.host_name = "IIS"
     web.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
     web.vm.network :forwarded_port, guest: 80, host: 8080, id: "webport", auto_correct: true
-    web.vm.provision :shell, path: "scripts/IIS/install-webserver.ps1"
+    web.vm.provision :shell, path: "resources/IIS/install-webserver.ps1"
   end
  
   config.vm.define "sql" do |sql|
